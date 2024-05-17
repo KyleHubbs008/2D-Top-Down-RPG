@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     private const string horizontal = "Horizontal";
     private const string vertical = "Vertical";
+    private const string lastHorizontal = "LastHorizontal";
+    private const string lastVertical = "LastVertical";
 
     private void Awake() 
     {
@@ -31,5 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat(horizontal, movement.x);
         animator.SetFloat(vertical, movement.y);
+
+        if (movement != Vector2.zero) {
+            animator.SetFloat(lastHorizontal, movement.x);
+            animator.SetFloat(lastVertical, movement.y);
+        }
     }
 }
